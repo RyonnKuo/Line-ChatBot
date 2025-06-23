@@ -1,0 +1,13 @@
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  border-radius: 8px !important;
+  background-color: #4D9F7554 !important;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: #1c1c1c !important;
+}
+
+.custom_label {
+  color: #3d6f55 !important;
+}

@@ -1,0 +1,53 @@
+<div class="content relative w-screen h-screen overflow-hidden" (scroll)="winScroll($event)">
+  <div class="w-full h-full bg-ff.50">
+    <nav class="w-full relative">
+      <div class="flex flex-row w-full justify-between items-center px-2 nav-bg">
+        <div class="flex h-76px w-fit">
+          <span class="font-semibold text-3d text-fourXl">{{"Rewoooood 媒合平台"}}</span>
+        </div>
+        <div class="flex flex-row justify-end items-center gap-5 w-[480px] py-2 px-3">
+          <!-- create a matching data -->
+          <button class="flex-center-container h-fit w-fit btn_status" (click)="onRegistered()">
+            <img class="registered-btn h-[60px] w-[60px]" alt="">
+          </button>
+          <!-- create a video -->
+          <button class="flex-center-container h-fit w-fit btn_status" (click)="openVideoDlg()">
+            <img class="video-btn h-[60px] w-[60px]" alt="">
+          </button>
+          <!-- language -->
+          <button class="flex-center-container h-fit w-fit btn_status" (click)="onLanguageSwitch()">
+            <img class="language-btn h-[60px] w-[60px]" alt="">
+          </button>
+        </div>
+
+      </div>
+
+    </nav>
+    <div class="flex-center-container flex-col w-full h-full gap-4 p-4">
+      <div class="flex flex-col bg-0080 custom_shadow rounded-[10px]">
+        <div class="flex flex-col justify-center w-[800px] h-[600px] relative overflow-hidden">
+          <div class="h-full overflow-hidden explores-slide flex flex-row" [style.width.px]="imageWid * recommendItems.length"
+            [style.transform]="transform" [style.transition]="transition" (transitionend)="swapEnd()"
+            (transitionstart)="swapStart()">
+            <div *ngFor="let item of recommendItems; let i = index" class
+            ="h-full w-full flex flex-col space-y-3">
+              <div class="flex grow h-full w-full">
+                <button class="h-full w-full recommend-img rounded-[10px]" [style.backgroundImage]="'url('+item+')'"
+                  (click)="onHyperlink($event, item)"></button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="recommendLeng > 1" class="flex absolute z-10 w-6 h-6 left-0">
+            <button class="flex-center-container w-10 h-10 widget-carousel-arrowleft" (click)="swapMsg(SwapAct.left)" [disabled]="disableSwapBtn">
+            </button>
+          </div>
+          <div *ngIf="recommendLeng > 1" class="flex absolute z-10 w-6 h-6 right-0">
+            <button class="flex-center-container w-10 h-10 widget-carousel-arrowright" (click)="swapMsg(SwapAct.right)" [disabled]="disableSwapBtn">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

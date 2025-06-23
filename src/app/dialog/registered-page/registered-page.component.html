@@ -1,0 +1,100 @@
+<div class="flex flex-col custom_dialog_bg px-5 py-4 h-full w-full overflow-hidden">
+  <div class="flex flex-row justify-between items-center w-full h-fit pb-3 border-b-4 border-53.30 border-solid">
+    <p class="text-lsm text-3d text-left font-semibold">{{"Welcome to use our service"}}</p>
+    <button class="h-5 w-5 close_btn" (click)="closeDialog()"></button>
+  </div>
+
+  <!-- body -->
+  <div class="flex-center-container grow flex-col">
+    <div [hidden]="currentPage !== 0" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <form class="w-[500px]">
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">姓名</mat-label>
+            <input matInput [(ngModel)]="userInfo.basic.name" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">公司名稱</mat-label>
+            <input matInput [(ngModel)]="userInfo.basic.company" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">職稱</mat-label>
+            <input matInput [(ngModel)]="userInfo.basic.position" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">連絡電話</mat-label>
+            <input matInput [(ngModel)]="userInfo.basic.phone" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">聯絡郵件</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. xxx@address.com">
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+              <mat-error>請輸入正確的Email格式</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label class="custom_label">聯絡地址</mat-label>
+            <textarea matInput [(ngModel)]="userInfo.basic.location" [ngModelOptions]="{standalone: true}" placeholder="Ex. 高雄市 蓮海路 70號"></textarea>
+          </mat-form-field>
+        </form>
+      </div>
+
+    </div>
+
+    <div [hidden]="currentPage !== 1" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">您有土地嗎?</span>
+      </div>
+    </div>
+
+    <div [hidden]="currentPage !== 2" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">您有技術嗎?</span>
+      </div>
+    </div>
+
+    <div [hidden]="currentPage !== 3" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">您有資金嗎?</span>
+      </div>
+    </div>
+
+    <div [hidden]="currentPage !== 4" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">您有樹木嗎?</span>
+      </div>
+    </div>
+
+    <div [hidden]="currentPage !== 5" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">您需要碳權嗎?</span>
+      </div>
+    </div>
+
+    <div [hidden]="currentPage !== 6" class="w-full h-full">
+      <div class="flex-center-container w-full h-full">
+        <span class="text-l text-1c text-left font-semibold">感謝您的來訪，我們會盡速與您聯繫!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row justify-end items-center gap-5">
+    <div [hidden]="currentPage == 0 || currentPage == totalPage" class="h-fit w-fit">
+      <button class="flex-center-container w-[156px] custom_basic_btn" (click)="nextPage(false)">
+        <span class="text-lsm font-semibold">否</span>
+      </button>
+    </div>
+
+    <button class="flex-center-container w-[156px] custom_primary_btn" [disabled]="!enableNextBtn" (click)="nextPage(true)">
+      <span [hidden]="currentPage !== 0" class="text-lsm font-semibold">下一步</span>
+      <span [hidden]="currentPage == totalPage || currentPage == 0" class="text-lsm font-semibold">是</span>
+      <span [hidden]="currentPage !== totalPage" class="text-lsm font-semibold">完成</span>
+    </button>
+  </div>
+</div>

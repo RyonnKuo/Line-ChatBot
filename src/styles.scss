@@ -1,0 +1,136 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+* {
+  font-family: "Segoe UI", sans-serif;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  button:focus-visible {
+    outline: 2px solid #204038;
+    outline-offset: -2px;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+
+  :focus {
+    outline: none;
+  }
+}
+
+html, body { height: 100%; }
+
+// flex center container
+.flex-center-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_status {
+  opacity: 0.8;
+  &:not([disabled]):hover {
+    opacity: 0.9;
+  }
+  &:not([disabled]):active {
+    opacity: 0.9;
+  }
+}
+
+.custom_basic_btn {
+  background-color: #fff;
+  border: 1px solid #4d9f75;
+  box-shadow: 0px 3px 5px #00000029;
+  color: #6b6b6b;
+  height: 32px;
+  border-radius: 20px;
+
+  &:not([disabled]):hover {
+    background-color: #d4e5dc;
+  }
+
+  &:not([disabled]):active {
+    background-color: #d4e5dc;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.custom_primary_btn {
+  background-color: #b2ebcf;
+  border: 1px solid #4d9f75;
+  box-shadow: 0px 3px 5px #00000029;
+  color: #6b6b6b;
+  height: 32px;
+  border-radius: 20px;
+
+  &:not([disabled]):hover {
+    background-color: #9adbbb;
+  }
+
+  &:not([disabled]):active {
+    background-color: #9adbbb;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.custom_shadow {
+  box-shadow: 0px 3px 5px #00000029;
+}
+
+.widget_600x400 {
+  height: 400px;
+  width: 600px;
+  border-radius: 20px;
+  background-color: #ececec;
+}
+
+.close_btn {
+  background-image: url("./assets/images/clear-svgrepo-com.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #4d9f7500;
+  &:not([disabled]):hover {
+    background-color: #4d9f7566;
+  }
+
+  &:not([disabled]):active {
+    background-color: #4d9f7580;
+  }
+}
+
+.custom_dialog_bg {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #0000004D;
+  border-radius: 20px;
+}
+
+.cdk-overlay-pane {
+  max-width: 100% !important;
+}
+.cdk-overlay-dark-backdrop {
+  background-color: #000000 !important;
+  opacity: 0.8 !important;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+  background: transparent !important;
+}
